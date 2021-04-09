@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div>
+	<h2>&emsp;Spring Boot Crud System - Product</h2>
+	<tr>
+		<div align = "left" >		   
+		     <h3><a  th:href="@{'/new'}">&emsp;Add new</a></h3>     
+	    </div>
+	
+	</tr>
+	<tr>
+	
+	<div class="col-sm-5" align = "center">
+                 <div class="panel-body" align = "center" >
+                 <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      		<th>Product ID</th>
+            <th>Product Name</th>
+            <th>Price (USD)</th>
+            <th>Edit</th>
+            <th>Delete</th>
+   	</tr>
+  </thead>
+  <tbody>
+      <tr  th:each="product : ${listProducts}">
+		<td th:text="${product.productId}">Product ID</td>
+		<td th:text="${product.productName}">ProductName</td>
+		<td th:text="${product.productPrice}">Price</td>
+		<td>
+			<a th:href="@{'/edit/' + ${product.productId}}">Edit</a>
+		</td>							    
+		<td>
+			<a th:href="@{'/delete/' + ${product.productId}}">Delete</a>
+		</td>		    
+		</tr> 
+   
+  </tbody>
+</table>
+                    
+                 </div>
+
+            </div> 
+
+	</tr>
+
+	</tbody>
+	</table>
+	<div>
+</body>
+</html>
